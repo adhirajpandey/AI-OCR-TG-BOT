@@ -1,0 +1,1 @@
+I have extracted the text using OCR. But there are some small spelling errors. Fix them logically and return well formatted text. Please make edits only on the provided context. The text is :
