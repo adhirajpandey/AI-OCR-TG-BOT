@@ -37,7 +37,7 @@ async def handle_response(text: str):
     if text == "Hello":
         return "Hi"
     else:
-        return "I don't understand"
+        return "I don't understand, only send me images with text in it."
 
 
 async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -76,6 +76,10 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print(f'Bot: "{response}"')
 
     await update.message.reply_text(response)
+
+
+async def handle_error(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    print(f'Update {update} caused error {context.error}')
 
 
 if __name__ == "__main__":

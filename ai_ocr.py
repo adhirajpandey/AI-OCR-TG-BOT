@@ -37,8 +37,8 @@ def gen_response(prompt):
     response = openai.ChatCompletion.create(
         engine="MyStatus",
         messages=[{"role": "system", "content": prompt}],
-        temperature=0,
-        max_tokens=350,
+        temperature=0.9,
+        max_tokens=450,
         top_p=0.95,
         frequency_penalty=0,
         presence_penalty=0,
