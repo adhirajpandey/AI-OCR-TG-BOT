@@ -50,11 +50,12 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     download_url = file_info.file_path
     response = requests.get(download_url, stream=True)
     if response.status_code == 200:
-        with open("D:\downloaded_image.jpg", 'wb') as f:
+        with open("downloaded_image.jpg", 'wb') as f:
             for chunk in response.iter_content(1024):
                 f.write(chunk)
+        print("Received image file, processing...")
 
-        ai_ocr_result = AI_ocr(r"D:\downloaded_image.jpg")
+        ai_ocr_result = AI_ocr("downloaded_image.jpg")
         await update.message.reply_text(ai_ocr_result)
         # await update.message.reply_text("Image downloaded successfully!")
     else:
